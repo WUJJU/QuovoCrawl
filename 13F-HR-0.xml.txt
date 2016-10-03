@@ -1,0 +1,2 @@
+{http://www.sec.gov/edgar/thirteenffiler}submissionType	{http://www.sec.gov/edgar/thirteenffiler}liveTestFlag	{http://www.sec.gov/edgar/thirteenffiler}cik	{http://www.sec.gov/edgar/thirteenffiler}ccc	{http://www.sec.gov/edgar/thirteenffiler}periodOfReport
+13F-HR	LIVE	0001166559	XXXXXXXX	06-30-2016
