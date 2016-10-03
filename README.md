@@ -17,8 +17,8 @@ scrapy crawl quotes -a CIK=0001166559
 2.13F-HR-0.xml.txt is the final result I got. (only convert part of xml)
 
 3.mutualFund/spiders/quotes_spider.py is the main program, you could see all code there.
-=======
+
 # Problem and Some Idea
-Due to the time, I only convert <headerData> in <edgarSubmission> to tab-delimited text.I think the left part will be done in almost same way using xml.etree.ElementTree
+Due to the time, I only convert headerData tag in edgarSubmission to tab-delimited text.I think the left part will be done in almost same way using xml.etree.ElementTree
 
 I see there are slightly difference betweeen these Mutual Funds format. In my opinion, adding if else statement is one way to handle the difference if we know which tags we need. Another way may be the regular expression.
