@@ -1,34 +1,25 @@
 # QuovoCrawl
-Crawling Mutual Funds by CIK then convert into tab-delimited text file Using Scrapy+etree
+Crawling Mutual Funds by CIK then convert into tab-delimited text file Using Scrapy+etree.
 
-follow the link to install Scrapy if you don't have scrapy: https://doc.scrapy.org/en/latest/intro/install.html
-
-
-
+# Prerequisite
+Follow the link to install Scrapy if you don't have scrapy: 
+        https://doc.scrapy.org/en/latest/intro/install.html
 
 -----------------------------------------------------------------------------------
-
------------
+# Run the Program
 command run:
-cd 到最外层文件下
-scrapy   crawl spider文件名 -o out.json -t json
+cd QuovoCrawl/
+scrapy crawl quotes -a CIK=0001166559
 
 =============
-#Pipeline data into MongoDB
-1. install scrapy-mongodb 
-2. change settings file:
+# Result
+1. 13F-HR-0.xml 13F-HR-1.xml are XML files parsed from https://www.sec.gov/Archives/edgar/data/1166559/000110465914039387/0001104659-14-039387.txt (the program will read all <XML>s  seperately and write into xml file)
 
-           ITEM_PIPELINES = [
-           'scrapy_mongodb.MongoDBPipeline',
-          ]
-       
-           MONGODB_URI = 'mongodb://localhost:27017'
-            MONGODB_DATABASE = 'scrapy'
-           MONGODB_COLLECTION = 'my_items'
+2. 13F-HR-0.xml.txt is the final result I got. (only convert part of xml)
 
-3. off course, you need install MongoDB, create table
-
+3.  mutualFund/spiders/quotes_spider.py is the main program, you could see all code there.
 =======
-Questions left
-1 proxy&browser
-2 custom pipeline
+# Problem and Some Idea
+Due to the time, I only convert <headerData> in <edgarSubmission> to tab-delimited text.I think the left part will be done in almost same way using xml.etree.ElementTree
+
+I see there are slightly difference betweeen these Mutual Funds format. In my opinion, adding if else statement is one way to handle the difference if we know which tags we need. Another way may be the regular expression.
